@@ -1,3 +1,5 @@
+
+
 .cells {
     border: 0px;
     padding: 0px;
@@ -19,15 +21,25 @@
   .left {
     left: 0;
     background-color: #D3D3D3;
+    background-image: url('ocean.jpg');
   }
   
   /* Control the right side */
   .right {
     right: 0;
-    background-color: #ffffff
+    background-color: #ffffff;
+    background-image: url('ocean.jpg');
   }
   
   .centered {
     text-align: center;
+  }
+
+  #comment0 {
+    background-color: #95c0ee;
+  }
+
+  #scoreBox {
+    background-color: #95c0ee;
   }
   
