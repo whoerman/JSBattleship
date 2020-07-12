@@ -6,15 +6,9 @@ function initializeData() {
     PlayerMisses = [0, 0];
     activePlayer = 0;
     shipTypes = [ null, 'Carrier', 'Battleship', 'Cruiser', 'Submarine', 'Destroyer' ];
-    shipHoles = [ null , 5, 4, 3, 3, 2 ];
-    shipHolesArray = [
-        null,
-        [ 0, 0, 0, 0, 0 ],
-        [ 0, 0, 0, 0 ],
-        [ 0, 0, 0 ],
-        [ 0, 0, 0 ],
-        [ 0, 0 ]
-    ]
+    shipHoles = [[ null , 5, 4, 3, 3, 2, 17 ], [ null , 5, 4, 3, 3, 2, 17 ] ];
+    shipHits = [[ null , 0, 0, 0, 0, 0, 0 ], [ null , 0, 0, 0, 0, 0, 0 ] ];
+    shipNumber = 0;
     boardsdata = [
         [
             [0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
@@ -44,7 +38,6 @@ function initializeData() {
 }
 
 initializeData();
-console.log(boardsdata)
 document.querySelector('.player'+activePlayer).style.opacity = '.5';
 
 
@@ -58,19 +51,26 @@ for (player = 0; player < 2; player++) {
 
                 function changePlayerTurns() {
                     document.querySelector('.player'+activePlayer).style.opacity = '1'; //makes the now active screen full opacity       
-                    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0; //ternary to switch it back and forth
+                    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0; //ternary to switch players
                     document.querySelector('.player'+activePlayer).style.opacity = '0.5'; //dims the now inactive screen
                     document.getElementById('comment'+activePlayer).textContent = 'Player '+(activePlayer+1)+'\'s Turn!';
                 };
 
-                if (activePlayer == (this.id).charAt(0)) {
-                    //comment don't shoot your own ships
-                    document.getElementById('comment0').textContent = 'Don\'t shoot your own ships!';
-                    document.getElementById('comment1').textContent = 'Don\'t shoot your own ships!';
+                function checkSinking() {
+                    console.log(shipHits);
+                    // if (shipHits[activePlayer][shipNumber] = shipHoles[activePlayer][shipNumber]) {
+                    //     document.getElementById('comment'+activePlayer).textContent = 'You sank the '+shipTypes[activePlayer][shipNumber];
+                    // } else return
+                }
+
+
+
+                if (activePlayer == (this.id).charAt(0)) {    //comment don't shoot your own ships
+                    document.getElementById('comment'+activePlayer).textContent = 'Don\'t shoot your own ships!';
 
                     //if the square is empty
                 } else if (boardsdata[parseInt((this.id).charAt(0))][parseInt((this.id).charAt(2)) - 1][parseInt((this.id).charAt(4)) - 1] === 0) {
-                    //change the square to the nothing graphic
+                    //change the square to the splash graphic
                     document.getElementById(this.id).src = '../JSBattleship/splash.jpg';
                     //chamge the value of that square's corresponding number in the board array to 8
                     boardsdata[parseInt((this.id).charAt(0))][parseInt((this.id).charAt(2)) - 1][parseInt((this.id).charAt(4)) - 1] = 8;
@@ -85,11 +85,22 @@ for (player = 0; player < 2; player++) {
 
                     //if the square has a ship
                 } else if (boardsdata[parseInt((this.id).charAt(0))][parseInt((this.id).charAt(2)) - 1][parseInt((this.id).charAt(4)) - 1] > 0 && boardsdata[parseInt((this.id).charAt(0))][parseInt((this.id).charAt(2)) - 1][parseInt((this.id).charAt(4)) - 1] < 6) {
+                    
+                     //change the hit array picture at that location
                     document.getElementById(this.id).src = '../JSBattleship/blast.jpg';
+
+                    //change the hit on the individual battleship
+                    shipNumber = boardsdata[parseInt((this.id).charAt(0))][parseInt((this.id).charAt(2)) - 1][parseInt((this.id).charAt(4))]
+                    shipHits[activePlayer][shipNumber] += 1;
+                    shipHits[activePlayer][6] += 1;
+                    checkSinking();
+
                     //chamge the value of that square's corresponding number in the board array to 9
                     boardsdata[parseInt((this.id).charAt(0))][parseInt((this.id).charAt(2)) - 1][parseInt((this.id).charAt(4)) - 1] = 9;
+                   
                     //comment that it is a hit
                     document.getElementById('comment'+activePlayer).textContent = 'Player '+(activePlayer+1)+ ' has a hit!!';
+                    
                     //add to the hit score
                     PlayerHits[activePlayer] += 1;
                     document.getElementById('hits' + activePlayer).textContent = ' Hits: ' + PlayerHits[activePlayer];
