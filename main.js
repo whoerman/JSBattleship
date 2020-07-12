@@ -2,21 +2,23 @@ var boardsdata;
 
 // boardsdata[0][0][2] player (0 or 1) - row (1 to 10 so 0 to 9) - column (1 to 10 so 0 to 9)
 function initializeData() {
-    PlayerHits = [0, 0]
-    PlayerMisses = [0, 0]
+    PlayerHits = [0, 0];
+    PlayerMisses = [0, 0];
     activePlayer = 0;
+    shipTypes = [ 'Carrier', 'Battleship', 'Cruiser', 'Submarine', 'Destroyer' ];
+    shipHoles = [ 5, 4, 3, 3, 2 ];
     boardsdata = [
         [
-            [0, 0, 0, 0, 0, 0, 4, 4, 4, 0],
-            [0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 2, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 2, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 2, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 2, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [3, 3, 3, 0, 0, 0, 0, 5, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 5, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         ],
         [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -35,6 +37,7 @@ function initializeData() {
 
 initializeData();
 console.log(boardsdata)
+document.querySelector('.player'+activePlayer).style.opacity = '.5';
 
 
 
@@ -45,14 +48,16 @@ for (player = 0; player < 2; player++) {
         for (column = 0; column < 10; column++) {
             document.getElementById(player + '-' + (row + 1) + '-' + (column + 1)).addEventListener('click', function () {
 
+
                 if (activePlayer == (this.id).charAt(0)) {
                     //comment don't shoot your own ships
                     document.getElementById('comment0').textContent = 'Don\'t shoot your own ships!';
+                    document.getElementById('comment1').textContent = 'Don\'t shoot your own ships!';
 
                     //if the square is empty
                 } else if (boardsdata[parseInt((this.id).charAt(0))][parseInt((this.id).charAt(2)) - 1][parseInt((this.id).charAt(4)) - 1] === 0) {
                     //change the square to the nothing graphic
-                    document.getElementById(this.id).src = '../JSBattleship/empty.jpg';
+                    document.getElementById(this.id).src = '../JSBattleship/splash.jpg';
                     //chamge the value of that square's corresponding number in the board array to 8
                     boardsdata[parseInt((this.id).charAt(0))][parseInt((this.id).charAt(2)) - 1][parseInt((this.id).charAt(4)) - 1] = 8;
                     //comment that it is a miss
@@ -60,10 +65,12 @@ for (player = 0; player < 2; player++) {
                     //add to the missed score
                     PlayerMisses[activePlayer] += 1;
                     document.getElementById('miss' + activePlayer).textContent = ' Miss: ' + PlayerMisses[activePlayer];
-                    //change players           
-                    // document.getElementById('P'+(activePlayer+1)+"ships").textContent = 'Player '+(activePlayer+1)+ ' Ships';
+                    //change players 
+                    document.querySelector('.player'+activePlayer).style.opacity = '1';        
                     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0; //ternary to switch it back and forth
-                    // document.getElementById('P'+(activePlayer+1)+"ships").textContent = '(Player '+(activePlayer+1)+ ' Shooting)';
+                    document.querySelector('.player'+activePlayer).style.opacity = '0.5'; 
+                    document.getElementById('comment1').textContent = 'Player '+(activePlayer+1)+'\'s Turn!';
+                    
 
 
                     //if the square has a ship
@@ -76,10 +83,9 @@ for (player = 0; player < 2; player++) {
                     //add to the hit score
                     PlayerHits[activePlayer] += 1;
                     document.getElementById('hits' + activePlayer).textContent = ' Hits: ' + PlayerHits[activePlayer];
-                    //change players
-                    // document.getElementById('P'+(activePlayer+1)+"ships").textContent = 'Player '+(activePlayer+1)+ ' Ships';
+                    //change players 
                     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0; //ternary to switch it back and forth
-                    // document.getElementById('P'+(activePlayer+1)+"ships").textContent = '(Player '+(activePlayer+1)+ ' Shooting)';
+                    document.getElementById('comment1').textContent = 'Player '+(activePlayer+1)+'\'s Turn!';
 
                 } else {
                     //comment that you already shot there
