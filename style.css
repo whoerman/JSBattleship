@@ -35,25 +35,58 @@
     text-align: center;
   }
 
-  #comment0 {
+  #P0Title1 {
     background-color: #95c0ee;
+    padding: 0rem;
+    margin: 0rem;
   }
 
-  #comment1 {
-    background-color: #95c0ee;
+  #P0Title2 {
+    padding: 0rem;
+    margin: 0rem;
+    margin-bottom: 10px;
   }
 
-  #scoreBox {
+  #P1Title1 {
     background-color: #95c0ee;
+    padding: 0rem;
+    margin: 0rem;
   }
+
+  #P1Title2 {
+    padding: 0rem;
+    margin: 0rem;
+    margin-bottom: 10px;
+  }
+
+  #P0Comment1 {
+    background-color: #95c0ee;
+    padding: 0rem;
+    margin: 0rem;
+  }
+
+  #P0Comment2 {
+    background-color: #95c0ee;
+    padding: 0rem;
+    margin: 0rem;
+  }
+
+  #P1Comment1 {
+    background-color: #95c0ee;
+    padding: 0rem;
+    margin: 0rem;
+  }
+
+  #P1Comment2 {
+    background-color: #95c0ee;
+    padding: 0rem;
+    margin: 0rem;
+  }
+  
 
   .cells:hover {
     opacity: .4;
     
   }
 
-  h1 {
-    padding: 0rem;
-    margin: 0rem;
-  }
   
