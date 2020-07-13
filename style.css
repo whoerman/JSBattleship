@@ -46,4 +46,14 @@
   #scoreBox {
     background-color: #95c0ee;
   }
+
+  .cells:hover {
+    opacity: .4;
+    
+  }
+
+  h1 {
+    padding: 0rem;
+    margin: 0rem;
+  }
   

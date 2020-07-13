@@ -5,9 +5,10 @@ function initializeData() {
     PlayerHits = [0, 0];
     PlayerMisses = [0, 0];
     activePlayer = 0;
-    shipTypes = [ null, 'Carrier', 'Battleship', 'Cruiser', 'Submarine', 'Destroyer' ];
-    shipHoles = [[ null , 5, 4, 3, 3, 2, 17 ], [ null , 5, 4, 3, 3, 2, 17 ] ];
-    shipHits = [[ null , 0, 0, 0, 0, 0, 0 ], [ null , 0, 0, 0, 0, 0, 0 ] ];
+    shipTypes = [ '', 'Carrier', 'Battleship', 'Cruiser', 'Submarine', 'Destroyer' ];
+    shipSunk = [[  0, 0, 0, 0, 0, 0, 0 ], [ 0, 0, 0, 0, 0, 0, 0 ] ];
+    shipHoles = [[  0 , 5, 4, 3, 3, 2, 17 ], [ 0 , 5, 4, 3, 3, 2, 17 ] ];
+    shipHits = [[ 0, 0, 0, 0, 0, 0, 0 ], [ 0, 0, 0, 0, 0, 0, 0 ] ];
     shipNumber = 0;
     boardsdata = [
         [
@@ -38,6 +39,7 @@ function initializeData() {
 }
 
 initializeData();
+console.log(shipHits);
 document.querySelector('.player'+activePlayer).style.opacity = '.5';
 
 
@@ -90,9 +92,10 @@ for (player = 0; player < 2; player++) {
                     document.getElementById(this.id).src = '../JSBattleship/blast.jpg';
 
                     //change the hit on the individual battleship
-                    shipNumber = boardsdata[parseInt((this.id).charAt(0))][parseInt((this.id).charAt(2)) - 1][parseInt((this.id).charAt(4))]
-                    shipHits[activePlayer][shipNumber] += 1;
-                    shipHits[activePlayer][6] += 1;
+                    shipNumber = boardsdata[parseInt(this.id.charAt(0))][(parseInt(this.id.charAt(2)))-1][(parseInt(this.id.charAt(4)))-1];
+                    console.log(shipNumber);
+                    shipHits[parseInt(this.id.charAt(0))][shipNumber] += 1;
+                    shipHits[parseInt(this.id.charAt(0))][6] += 1;
                     checkSinking();
 
                     //chamge the value of that square's corresponding number in the board array to 9
