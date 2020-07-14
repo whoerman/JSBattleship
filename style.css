@@ -35,6 +35,12 @@
     text-align: center;
   }
 
+  #yourShips {
+    background-color: #95c0ee;
+    padding: 0rem;
+    margin: 0rem;
+  }
+
   #P0Title1 {
     background-color: #95c0ee;
     padding: 0rem;
