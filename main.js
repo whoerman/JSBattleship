@@ -91,14 +91,13 @@ function playGame() {
     
     
                     //Play Game
-                    console.log(this.id);
                     if (parseInt(activePlayer) === parseInt((this.id).charAt(0))) {
                         document.getElementById('P'+activePlayer+'Comment1').textContent = 'Not at your own ships! Try Again!';
                         document.getElementById('P'+activePlayer+'Comment1').style.backgroundColor = '#ff0000';
                         setTimeout(function(){ document.getElementById('P'+activePlayer+'Comment1').style.backgroundColor = '#95c0ee'; }, 500);
                     } else {
                         squareData = boardsdata[parseInt((this.id).charAt(0))][parseInt((this.id).charAt(2))][parseInt((this.id).charAt(4))]
-    
+                        console.log(squareData);
                         //7 is empty and means it is a miss
                         if (squareData === 7) {
                             //tell that it was a miss   
