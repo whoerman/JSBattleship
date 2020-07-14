@@ -57,13 +57,18 @@ document.querySelector('.player' + activePlayer + 'Board').style.opacity = '.5';
 //setting up the ships
 function setShips() {
 
-
-
-
-
-
+    
     let squareData =1;
-    clickSquare();
+    function fillBoard1() {
+        clickSquare();
+    }
+
+    function fillBoard2() {
+        console.log('done with clicksquare')
+        clickSquare();
+    }
+
+    fillBoard1();
 
     function clickSquare() {
         for (player = 0; player < 2; player++) {
@@ -73,7 +78,9 @@ function setShips() {
 
 
                         function checkDirection() {
-                            console.log('check direction');
+                            if (shipCount > 1) {
+
+                            }
                         }
 
 
@@ -85,7 +92,25 @@ function setShips() {
                         console.log(shipCount);
                         checkDirection();
                         boardsdata[currentSquare[0]][currentSquare[1]][currentSquare[2]] = squareData;
+                        //change the current square to the squareData number graphic
                         document.getElementById(currentSquare[0]+'-'+currentSquare[1]+'-'+currentSquare[2]).src = '../JSBattleship/space' + squareData + '.jpg';
+                        //change the surrounding squares to arrows
+                        if (boardsdata[currentSquare[0]][currentSquare[1]+1][currentSquare[2]] = 7) {
+                            document.getElementById(currentSquare[0]+'-'+(currentSquare[1]+1)+'-'+currentSquare[2]).src = '../JSBattleship/down.jpg';
+                        }
+                        if (boardsdata[currentSquare[0]][currentSquare[1]-1][currentSquare[2]] = 7) {
+                            document.getElementById(currentSquare[0]+'-'+(currentSquare[1]-1)+'-'+currentSquare[2]).src = '../JSBattleship/up.jpg';
+                        }
+                        if (boardsdata[currentSquare[0]][currentSquare[1]][currentSquare[2]-1] = 7) {
+                            document.getElementById(currentSquare[0]+'-'+(currentSquare[1])+'-'+(currentSquare[2]-1)).src = '../JSBattleship/left.jpg';
+                        }
+                        if (boardsdata[currentSquare[0]][currentSquare[1]][currentSquare[2]+1] = 7) {
+                            document.getElementById(currentSquare[0]+'-'+(currentSquare[1])+'-'+(currentSquare[2]+1)).src = '../JSBattleship/right.jpg';
+                        }
+                        
+                        
+                        
+
                         if (shipCount === 5){
                             squareData += 1;
                         } else if (shipCount === 9) {
@@ -94,7 +119,10 @@ function setShips() {
                             squareData += 1;
                         } else if (shipCount === 15){
                             squareData += 1;
+                        } else if (shipCount === 17) {
+                            fillBoard2()
                         }
+
 
                     })
                 }
