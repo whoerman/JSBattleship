@@ -1,4 +1,4 @@
-var boardsdata;
+var boardsdata, player;
 
 // boardsdata[0][0][2] player (0 or 1) - row (0 to 9) - column ( 0 to 9)
 function initializeData() {
@@ -14,7 +14,7 @@ function initializeData() {
         [null, 0, 0, 0, 0, 0, 0, 0], //empty, the five ships, then hits and misses to compare with holes
         [null, 0, 0, 0, 0, 0, 0, 0]
     ];
-
+    boardfill = 0;
     shipNumber = 0;
     shipCount = 0;
     currentSquare = [0, 0, 0];
@@ -49,7 +49,7 @@ function initializeData() {
 initializeData();
 
 
-document.querySelector('.player' + activePlayer + 'Board').style.opacity = '.5';
+
 
 //can hide the board on one or both sides
 //document.querySelector('#left-div').style.display = 'none';
@@ -57,75 +57,101 @@ document.querySelector('.player' + activePlayer + 'Board').style.opacity = '.5';
 //setting up the ships
 function setShips() {
 
-    
-    let squareData =1;
+    fillBoard0();
+
+    function fillBoard0() {
+        document.querySelector('.player' + otherPlayer + 'Board').style.opacity = '.5';
+        document.getElementById("P0Title2").textContent = 'Time to set Player 1\'s ships!';
+        document.getElementById("P0Title2").style.color = '#ff0000';
+        document.getElementById("P0Title2").style.textShadow = '2px 2px #000000';
+        // document.getElementById('0shiPicDiv').style.display = 'none';
+
+        player = 0;
+        shipCount = 0;
+        squareData = 1;
+        clickSquare();
+    }
+
     function fillBoard1() {
+
+        // document.getElementById("0shipPicDiv").style.display = 'block';
+
+        document.querySelector('.player' + activePlayer + 'Board').style.opacity = '.3';
+        document.getElementById("P0Title2").textContent = 'Player 1\'s ships!';
+        document.getElementById("P0Title2").style.color = '#000000';
+        document.getElementById("P0Title2").style.textShadow = 'none';
+
+        document.querySelector('.player' + otherPlayer + 'Board').style.opacity = '1';
+        document.getElementById("P1Title2").textContent = 'Time to set Player 2\'s ships!';
+        document.getElementById("P1Title2").style.color = '#ff0000';
+        document.getElementById("P1Title2").style.textShadow = '2px 2px #000000';
+
+        player = 1;
+        shipCount = 0;
+        squareData = 1;
         clickSquare();
     }
 
-    function fillBoard2() {
-        console.log('done with clicksquare')
-        clickSquare();
-    }
-
-    fillBoard1();
-
-    function clickSquare() {
+    function prepareGame() {
         for (player = 0; player < 2; player++) {
             for (row = 0; row < 10; row++) {
                 for (column = 0; column < 10; column++) {
-                    document.getElementById(player + '-' + (row) + '-' + (column)).addEventListener('click', function () {
-
-
-                        function checkDirection() {
-                            if (shipCount > 1) {
-
-                            }
-                        }
-
-
-                        console.log(this.id)
-                        currentSquare[0] = parseInt((this.id).charAt(0));
-                        currentSquare[1] = parseInt((this.id).charAt(2));
-                        currentSquare[2] = parseInt((this.id).charAt(4));
-                        shipCount += 1;
-                        console.log(shipCount);
-                        checkDirection();
-                        boardsdata[currentSquare[0]][currentSquare[1]][currentSquare[2]] = squareData;
-                        //change the current square to the squareData number graphic
-                        document.getElementById(currentSquare[0]+'-'+currentSquare[1]+'-'+currentSquare[2]).src = '../JSBattleship/space' + squareData + '.jpg';
-                        //change the surrounding squares to arrows
-                        if (boardsdata[currentSquare[0]][currentSquare[1]+1][currentSquare[2]] = 7) {
-                            document.getElementById(currentSquare[0]+'-'+(currentSquare[1]+1)+'-'+currentSquare[2]).src = '../JSBattleship/down.jpg';
-                        }
-                        if (boardsdata[currentSquare[0]][currentSquare[1]-1][currentSquare[2]] = 7) {
-                            document.getElementById(currentSquare[0]+'-'+(currentSquare[1]-1)+'-'+currentSquare[2]).src = '../JSBattleship/up.jpg';
-                        }
-                        if (boardsdata[currentSquare[0]][currentSquare[1]][currentSquare[2]-1] = 7) {
-                            document.getElementById(currentSquare[0]+'-'+(currentSquare[1])+'-'+(currentSquare[2]-1)).src = '../JSBattleship/left.jpg';
-                        }
-                        if (boardsdata[currentSquare[0]][currentSquare[1]][currentSquare[2]+1] = 7) {
-                            document.getElementById(currentSquare[0]+'-'+(currentSquare[1])+'-'+(currentSquare[2]+1)).src = '../JSBattleship/right.jpg';
-                        }
-                        
-                        
-                        
-
-                        if (shipCount === 5){
-                            squareData += 1;
-                        } else if (shipCount === 9) {
-                            squareData += 1;
-                        } else if (shipCount === 12){
-                            squareData += 1;
-                        } else if (shipCount === 15){
-                            squareData += 1;
-                        } else if (shipCount === 17) {
-                            fillBoard2()
-                        }
-
-
-                    })
+                    document.getElementById(parseInt(player) + '-' + (row) + '-' + (column)).src = '../JSBattleship/waves.jpg';
                 }
+            }
+        }
+        playGame();
+    }
+
+
+    function clickSquare() {
+        for (row = 0; row < 10; row++) {
+            for (column = 0; column < 10; column++) {
+                document.getElementById(parseInt(player) + '-' + (row) + '-' + (column)).addEventListener('click', function () {
+
+                    function checkDirection() {
+                        console.log('check direction')
+                        console.log(currentSquare[0], currentSquare[1], currentSquare[2], )
+                    }
+
+
+                    console.log(this.id)
+                    currentSquare[0] = parseInt((this.id).charAt(0));
+                    currentSquare[1] = parseInt((this.id).charAt(2));
+                    currentSquare[2] = parseInt((this.id).charAt(4));
+                    shipCount += 1;
+                    console.log(shipCount);
+                    checkDirection();
+
+                    boardsdata[currentSquare[0]][currentSquare[1]][currentSquare[2]] = squareData;
+
+                    //change the current square to the squareData number graphic
+                    document.getElementById(currentSquare[0] + '-' + currentSquare[1] + '-' + currentSquare[2]).src = '../JSBattleship/space' + squareData + '.jpg';
+
+
+
+
+                    if (shipCount === 5) {
+                        squareData += 1;
+                    } else if (shipCount === 9) {
+                        squareData += 1;
+                    } else if (shipCount === 12) {
+                        squareData += 1;
+                    } else if (shipCount === 15) {
+                        squareData += 1;
+                    } else if (shipCount === 17) {
+                        boardfill += 1;
+                        if (boardfill === 1) {
+                            prepareGame();
+                        } else {
+                            fillBoard1();
+                        }
+
+
+                    }
+
+
+                })
             }
         }
     }
