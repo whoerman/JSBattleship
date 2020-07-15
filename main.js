@@ -1,4 +1,4 @@
-var boardsdata, player, currentPlayer, shipTypeCounter;
+var boardsdata, player, currentPlayer;
 
 // boardsdata[0][0][2] player (0 or 1) - row (0 to 9) - column ( 0 to 9)
 function initializeData() {
@@ -17,6 +17,7 @@ function initializeData() {
     boardfill = 0;
     shipNumber = 0;
     shipCount = 0;
+    shipTypeCounter = 0;
     currentSquare = [0, 0, 0];
     boardsdata = [
         [
@@ -98,6 +99,7 @@ function settingShips() {
     document.getElementById("P0Title2").style.color = '#ff0000';
     document.getElementById("P0Title2").style.textShadow = '2px 2px #000000';
     //setting each ship
+    currentPlayer = 0;
     setSquareValues();
 }
 
@@ -109,35 +111,42 @@ function setSquareValues() {
                 //player 1 (actually 0)
                 console.log(this.id)
                 shipTypeCounter += 1;
-                shipDataInputValue = 1;
-                currentSquare[0] = parseInt((this.id).charAt(0));
-                currentSquare[1] = parseInt((this.id).charAt(2));
-                boardsdata[0][currentSquare[0]][currentSquare[1]]= shipDataInputValue;
-                console.log(boardsdata[0][currentSquare[0]][currentSquare[1]]);
 
-                //change the current square to the squareData number graphic
-                document.getElementById(currentSquare[0] + '-' + currentSquare[1]).src = '../JSBattleship/space' + shipDataInputValue + '.jpg';
-            
-                if (shipTypeCounter === 5) {
-                    shipDataInputValue += 1;
-                } else if (shipTypeCounter === 9) {
-                    shipDataInputValue += 1;
-                } else if (shipTypeCounter === 12) {
-                    shipDataInputValue += 1;
-                } else if (shipTypeCounter === 15) {
-                    shipDataInputValue += 1;
-                } else if (shipTypeCounter === 17) {
-                    boardfill += 1;
-                    if (boardfill === 1) {
-                        console.log('switch')
-                    } else {
-                        // fillBoard1();
+                if (shipTypeCounter > 0 && shipTypeCounter < 6) {
+                    shipDataInputValue = 1;
+                } else if (shipTypeCounter > 5 && shipTypeCounter < 10) {
+                    shipDataInputValue = 2;
+                } else if (shipTypeCounter > 9 && shipTypeCounter < 13) {
+                    shipDataInputValue = 3;
+                } else if (shipTypeCounter > 12 && shipTypeCounter < 16) {
+                    shipDataInputValue = 4;
+                } else if (shipTypeCounter > 15 && shipTypeCounter < 17) {
+                    shipDataInputValue = 5;
+                } else {
+                    //switchplayers
+                    console.log('switch player');
+                    currentPlayer = 1;
+                    ShipTypeCounter = 0;
+                    document.getElementById("P0Title2").textContent = 'Time to set ' + playerNames[currentPlayer] + '\'s ships!';
+                    for (rowReset = 0; rowReset < 10; rowReset++) {
+                        for (columnReset = 0; columnReset < 10; columnReset++) {
+                            document.getElementById(rowReset + '-' + columnReset).src = '../JSBattleship/blank.jpg';
+                        }
                     }
 
-
                 }
-            
-            
+
+
+
+                currentSquare[0] = parseInt((this.id).charAt(0));
+                currentSquare[1] = parseInt((this.id).charAt(2));
+                boardsdata[0][currentSquare[0]][currentSquare[1]] = shipDataInputValue;
+                console.log(boardsdata[currentPlayer][currentSquare[0]][currentSquare[1]]);
+                //change the current square to the squareData number 
+                document.getElementById(currentSquare[0] + '-' + currentSquare[1]).src = '../JSBattleship/space' + shipDataInputValue + '.jpg';
+
+
+
             })
         }
     }
