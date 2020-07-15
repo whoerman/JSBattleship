@@ -35,6 +35,12 @@
     text-align: center;
   }
 
+  #instructions {
+    background-color: #95c0ee;
+    padding: 0rem;
+    margin: 0rem;
+  }
+
   #yourShips {
     background-color: #95c0ee;
     padding: 0rem;

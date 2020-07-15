@@ -18,288 +18,456 @@
     <div class="split left">
         <div class="centered">
 
-            <div class = '0topCommentDiv'>
+            <!-- Top comment div for left side -->
+            <div class='0topCommentDiv'>
                 <h1 id='P0Title1'>Welcome to Javascript Battleship!</h1>
                 <h1 id='P0Title2'><span> Player 1's Ships</span></h1>
             </div>
 
-            <div id="left-div" class='player0Board'>
-                <div>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-0'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-1'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-2'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-3'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-4'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-5'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-6'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-7'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-8'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-9'>
+            <div id="left-div">
+
+                <!-- Set Up Board to set ships - hidden when the game starts -->
+                <div class="setUpBoard" id=setUpBoard>
+                    <div>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='0-0'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='0-1'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='0-2'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='0-3'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='0-4'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='0-5'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='0-6'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='0-7'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='0-8'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='0-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='1-0'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='1-1'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='1-2'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='1-3'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='1-4'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='1-5'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='1-6'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='1-7'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='1-8'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='1-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='2-0'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='2-1'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='2-2'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='2-3'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='2-4'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='2-5'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='2-6'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='2-7'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='2-8'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='2-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='3-0'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='3-1'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='3-2'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='3-3'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='3-4'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='3-5'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='3-6'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='3-7'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='3-8'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='3-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='4-0'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='4-1'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='4-2'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='4-3'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='4-4'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='4-5'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='4-6'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='4-7'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='4-8'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='4-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='5-0'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='5-1'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='5-2'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='5-3'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='5-4'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='5-5'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='5-6'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='5-7'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='5-8'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='5-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='6-0'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='6-1'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='6-2'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='6-3'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='6-4'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='6-5'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='6-6'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='6-7'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='6-8'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='6-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='7-0'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='7-1'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='7-2'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='7-3'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='7-4'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='7-5'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='7-6'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='7-7'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='7-8'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='7-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='8-0'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='8-1'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='8-2'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='8-3'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='8-4'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='8-5'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='8-6'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='8-7'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='8-8'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='8-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='9-0'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='9-1'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='9-2'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='9-3'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='9-4'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='9-5'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='9-6'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='9-7'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='9-8'>
+                        <img src='../JSBattleship/blank.jpg' alt='blank' class='cells' id='9-9'>
+                    </div>
                 </div>
-                <div>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-0'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-1'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-2'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-3'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-4'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-5'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-6'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-7'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-8'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-9'>
+
+                <!-- Left Player Board - hidden during setup -->
+                <div id="player0board" class='player0Board'>
+                    <div>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-0'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-1'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-2'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-3'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-4'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-5'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-6'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-7'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-8'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-0-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-0'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-1'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-2'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-3'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-4'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-5'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-6'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-7'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-8'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-1-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-0'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-1'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-2'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-3'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-4'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-5'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-6'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-7'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-8'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-0'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-1'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-2'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-3'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-4'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-5'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-6'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-7'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-8'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-0'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-1'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-2'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-3'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-4'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-5'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-6'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-7'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-8'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-0'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-1'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-2'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-3'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-4'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-5'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-6'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-7'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-8'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-0'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-1'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-2'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-3'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-4'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-5'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-6'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-7'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-8'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-0'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-1'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-2'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-3'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-4'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-5'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-6'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-7'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-8'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-0'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-1'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-2'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-3'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-4'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-5'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-6'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-7'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-8'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-9'>
+                    </div>
+                    <div>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-0'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-1'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-2'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-3'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-4'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-5'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-6'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-7'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-8'>
+                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-9'>
+                    </div>
                 </div>
-                <div>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-0'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-1'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-2'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-3'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-4'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-5'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-6'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-7'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-8'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-2-9'>
-                </div>
-                <div>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-0'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-1'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-2'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-3'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-4'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-5'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-6'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-7'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-8'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-3-9'>
-                </div>
-                <div>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-0'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-1'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-2'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-3'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-4'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-5'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-6'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-7'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-8'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-4-9'>
-                </div>
-                <div>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-0'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-1'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-2'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-3'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-4'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-5'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-6'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-7'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-8'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-5-9'>
-                </div>
-                <div>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-0'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-1'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-2'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-3'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-4'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-5'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-6'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-7'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-8'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-6-9'>
-                </div>
-                <div>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-0'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-1'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-2'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-3'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-4'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-5'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-6'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-7'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-8'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-7-9'>
-                </div>
-                <div>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-0'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-1'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-2'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-3'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-4'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-5'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-6'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-7'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-8'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-8-9'>
-                </div>
-                <div>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-0'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-1'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-2'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-3'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-4'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-5'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-6'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-7'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-8'>
-                    <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='0-9-9'>
-                </div>
+
             </div>
 
-            <div id = "0shipPicDiv">
-                <h4 id = 'yourShips'>Your ships:</h4>
-                <img src='Destroyer.gif' id='P0Ship5'></img><img src='Cruiser.gif' id='P0Ship3'></img><img src='Submarine.gif' id='P0Ship4'></img>
+            <!-- ship picture div - hidden during setup -->
+            <div id="0shipPicDiv">
+                <h4 id='yourShips' class=''>Your ships:</h4>
+                <img src='Destroyer.gif' id='P0Ship5'></img><img src='Cruiser.gif' id='P0Ship3'></img><img
+                    src='Submarine.gif' id='P0Ship4'></img>
                 <img src='Carrier.gif' id='P0Ship1'></img><img src='Battleship.gif' id='P0Ship2'></img>
             </div>
-            <div id = '0bottomCommentDiv'>
+
+            <!-- bottom comment div for left side -->
+            <div id='0bottomCommentDiv'>
                 <h1 id='P0Comment1'><span>Ready to Play!</span></h1>
-                <h1 id='P0Comment2'><span><i class="fa fa-crosshairs"></i> Fire When Ready!</span></h1>
+                <h2 id='P0Comment2'><span><i class="fa fa-crosshairs"></i> Fire When Ready!</span></h2>
             </div>
-            
+
 
         </div>
         <h1></h1>
         <div class="split right">
             <div class="centered">
 
-                <div class = '1topCommentDiv'>
-                    <h1 id='P1Title1'>Welcome to Javascript Battleship!</h1>
+                <!-- Top Comment Div for Right Side - partially hidden during setup -->
+                <div class='1topCommentDiv'>
+                    <h1 id='P1Title1'><em>(based on the classic Battleship game)</em></h1>
                     <h1 id='P1Title2'><span> Player 1's Ships</span></h1>
                 </div>
-    
-                <div id="right-div" class='player1Board'>
-                    <div>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-0'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-1'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-2'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-3'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-4'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-5'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-6'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-7'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-8'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-9'>
-                    </div>
-                    <div>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-0'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-1'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-2'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-3'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-4'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-5'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-6'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-7'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-8'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-9'>
-                    </div>
-                    <div>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-0'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-1'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-2'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-3'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-4'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-5'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-6'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-7'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-8'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-9'>
-                    </div>
-                    <div>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-0'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-1'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-2'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-3'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-4'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-5'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-6'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-7'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-8'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-9'>
-                    </div>
-                    <div>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-0'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-1'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-2'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-3'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-4'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-5'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-6'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-7'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-8'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-9'>
-                    </div>
-                    <div>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-0'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-1'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-2'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-3'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-4'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-5'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-6'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-7'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-8'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-9'>
-                    </div>
-                    <div>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-0'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-1'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-2'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-3'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-4'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-5'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-6'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-7'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-8'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-9'>
-                    </div>
-                    <div>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-0'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-1'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-2'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-3'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-4'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-5'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-6'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-7'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-8'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-9'>
-                    </div>
-                    <div>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-0'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-1'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-2'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-3'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-4'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-5'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-6'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-7'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-8'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-9'>
-                    </div>
-                    <div>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-0'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-1'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-2'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-3'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-4'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-5'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-6'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-7'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-8'>
-                        <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-9'>
-                    </div>
+
+                <div id="right-div">
+
+                    <!-- Right Instruction Div - only seen during setup -->
+                    <div class="instructions" id='instructions'>
+
+                        <!-- Name input Div - hidden after names are inputted -->
+                        <div id="nameInput">
+                            <p id="nameParagraph">Instructions</p>
+                            <form action="/action_page.php" method="get" id="nameform">
+                                <label for="fname">First Player Name:</label>
+                                <input type="text" id="1name" name="1name"><br><br>
+                                <label for="lname">Second Player Name:</label>
+                                <input type="text" id="2name" name="2name">
+                            </form>
+                            <h1></h1>
+                            <button type="button" id='nameFormButton' form="nameform">Submit Names</button>
+                        </div>
+
+                        <!-- rest on ship input instructions - hidden until names are inputted -->
+                        <div id = 'shipInputInstructions'>
+                            <h2 id="welcomeNames"><span>Names</span></h2>
+                        </div>
+
                     </div>
 
-                    <div id = "1shipPicDiv">
-                        <h4 id = 'yourShips'>Your ships:</h4>
-                        <img src='Destroyer.gif' id='P1Ship5'></img><img src='Cruiser.gif' id='P1Ship3'></img><img src='Submarine.gif' id='P1Ship4'></img>
-                        <img src='Carrier.gif' id='P1Ship1'></img><img src='Battleship.gif' id='P1Ship2'></img>
+
+                    <!-- Right player board - hidden during setup -->
+                    <div class='player1Board' id='player1Board'>
+                        <div>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-0'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-1'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-2'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-3'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-4'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-5'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-6'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-7'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-8'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-0-9'>
+                        </div>
+                        <div>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-0'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-1'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-2'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-3'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-4'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-5'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-6'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-7'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-8'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-1-9'>
+                        </div>
+                        <div>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-0'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-1'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-2'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-3'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-4'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-5'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-6'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-7'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-8'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-2-9'>
+                        </div>
+                        <div>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-0'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-1'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-2'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-3'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-4'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-5'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-6'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-7'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-8'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-3-9'>
+                        </div>
+                        <div>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-0'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-1'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-2'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-3'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-4'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-5'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-6'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-7'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-8'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-4-9'>
+                        </div>
+                        <div>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-0'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-1'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-2'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-3'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-4'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-5'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-6'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-7'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-8'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-5-9'>
+                        </div>
+                        <div>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-0'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-1'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-2'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-3'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-4'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-5'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-6'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-7'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-8'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-6-9'>
+                        </div>
+                        <div>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-0'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-1'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-2'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-3'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-4'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-5'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-6'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-7'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-8'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-7-9'>
+                        </div>
+                        <div>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-0'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-1'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-2'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-3'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-4'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-5'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-6'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-7'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-8'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-8-9'>
+                        </div>
+                        <div>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-0'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-1'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-2'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-3'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-4'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-5'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-6'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-7'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-8'>
+                            <img src='../JSBattleship/waves.jpg' alt='waves' class='cells' id='1-9-9'>
+                        </div>
                     </div>
-                    <div id = '1bottomCommentDiv'>
-                        <h1 id='P1Comment1'><span>Ready to Play!</span></h1>
-                        <h1 id='P1Comment2'><span><i class="fa fa-crosshairs"></i> Fire When Ready!</span></h1>
-                    </div>
-                
+
+                </div>
+
+                <!-- Bottom Ship Picture Div - hidden during setup -->
+                <div id="1shipPicDiv">
+                    <h4 id='yourShips'>Your ships:</h4>
+                    <img src='Destroyer.gif' id='P1Ship5'></img><img src='Cruiser.gif' id='P1Ship3'></img><img
+                        src='Submarine.gif' id='P1Ship4'></img>
+                    <img src='Carrier.gif' id='P1Ship1'></img><img src='Battleship.gif' id='P1Ship2'></img>
+                </div>
+
+                <!-- Bottom Comment Div on right - hidden during setup -->
+                <div id='1bottomCommentDiv'>
+                    <h1 id='P1Comment1'><span>Ready to Play!</span></h1>
+                    <h2 id='P1Comment2'><span><i class="fa fa-crosshairs"></i> Fire When Ready!</span></h2>
+                </div>
+
             </div>
         </div>
 

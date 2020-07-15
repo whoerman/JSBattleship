@@ -1,8 +1,8 @@
-var boardsdata, player;
+var boardsdata, player, currentPlayer, shipTypeCounter;
 
 // boardsdata[0][0][2] player (0 or 1) - row (0 to 9) - column ( 0 to 9)
 function initializeData() {
-    playerNames = ['Player 1', 'Player 2']
+    playerNames = ['Player1', 'Player2']
     activePlayer = 0;
     otherPlayer = 1;
     shipTypes = [null, 'Carrier', 'Battleship', 'Cruiser', 'Submarine', 'Destroyer'];;
@@ -48,16 +48,108 @@ function initializeData() {
 
 initializeData();
 
+// turn on instruction Setup
+setupInstructions()
+
+
+function setupInstructions() {
+    // hiding and exposing the elements to start the setup
+    //hide the play boards
+    document.querySelector('.player0Board').style.display = 'none';
+    document.querySelector('.player1Board').style.display = 'none';
+    //hide the ship pictures
+    document.getElementById('0shipPicDiv').style.display = 'none';
+    document.getElementById('1shipPicDiv').style.display = 'none';
+    //put the instructions on the left side
+    document.getElementById("P0Title2").textContent = 'Ship Installation Board';
+    document.getElementById("P0Comment1").textContent = 'Use this board to set up your ships';
+    document.getElementById("P0Comment2").textContent = '(Instructions to the right - click on the squares)';
+    //hide the elements of the right side
+    document.getElementById('P1Title2').style.display = 'none';
+    document.getElementById('P1Comment1').style.display = 'none';
+    document.getElementById('P1Comment2').style.display = 'none';
+    document.getElementById('shipInputInstructions').style.display = 'none';
+    //get the name input
+    nameInputForms();
+};
+
+//getting the player names
+function nameInputForms() {
+    document.getElementById("nameFormButton").addEventListener("click", function () {
+        playerNames[0] = document.getElementById("1name").value;
+        playerNames[1] = document.getElementById("2name").value;
+        shipInputInstructions();
+    });
+};
+
+//instructions for inputting the ships
+function shipInputInstructions() {
+    //hide the name input div
+    document.getElementById('nameInput').style.display = 'none';
+    //reveal the welcome with the player names
+    document.getElementById('shipInputInstructions').style.display = 'block';
+    document.getElementById("welcomeNames").textContent = 'Welcome, ' + playerNames[0] + ' & ' + playerNames[1] + '!';
+    settingShips();
+}
+
+function settingShips() {
+    //turn on the title over the selection board
+    document.getElementById("P0Title2").textContent = 'Time to set ' + playerNames[0] + '\'s ships!';
+    document.getElementById("P0Title2").style.color = '#ff0000';
+    document.getElementById("P0Title2").style.textShadow = '2px 2px #000000';
+    //setting each ship
+    setSquareValues();
+}
+
+function setSquareValues() {
+    for (row = 0; row < 10; row++) {
+        for (column = 0; column < 10; column++) {
+            document.getElementById(row + '-' + column).addEventListener('click', function () {
+
+                //player 1 (actually 0)
+                console.log(this.id)
+                shipTypeCounter += 1;
+                shipDataInputValue = 1;
+                currentSquare[0] = parseInt((this.id).charAt(0));
+                currentSquare[1] = parseInt((this.id).charAt(2));
+                boardsdata[0][currentSquare[0]][currentSquare[1]]= shipDataInputValue;
+                console.log(boardsdata[0][currentSquare[0]][currentSquare[1]]);
+
+                //change the current square to the squareData number graphic
+                document.getElementById(currentSquare[0] + '-' + currentSquare[1]).src = '../JSBattleship/space' + shipDataInputValue + '.jpg';
+            
+                if (shipTypeCounter === 5) {
+                    shipDataInputValue += 1;
+                } else if (shipTypeCounter === 9) {
+                    shipDataInputValue += 1;
+                } else if (shipTypeCounter === 12) {
+                    shipDataInputValue += 1;
+                } else if (shipTypeCounter === 15) {
+                    shipDataInputValue += 1;
+                } else if (shipTypeCounter === 17) {
+                    boardfill += 1;
+                    if (boardfill === 1) {
+                        console.log('switch')
+                    } else {
+                        // fillBoard1();
+                    }
+
+
+                }
+            
+            
+            })
+        }
+    }
+}
 
 
 
-//can hide the board on one or both sides
-//document.querySelector('#left-div').style.display = 'none';
 
 //setting up the ships
 function setShips() {
 
-    fillBoard0();
+    // fillBoard0();
 
     function fillBoard0() {
         document.querySelector('.player' + otherPlayer + 'Board').style.opacity = '.5';
