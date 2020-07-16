@@ -309,7 +309,18 @@
 
                         <!-- Name input Div - hidden after names are inputted -->
                         <div id="nameInput">
-                            <p id="nameParagraph">Instructions</p>
+                            <h2 id ='instructionHeader'>Instructions for Game Play</h2>
+                            <p id="nameParagraph">Most of you are familiar withthe game BATTLESHIP, 
+                                known worldwide as a pencil and paper game which dates from World War I.
+                                In 1967 Milton Bradley introduced a version of the game that used plastic boards and pegs. 
+                            I have writtten a version in plain Javascript, to home my skills. I hope you enjoy it.</p>
+                            <p id="gameParagraph">Summary: Each player has a 10 x 10 board, on which they hide 5 ships 
+                                (Carrier - 5 holes, Battleship - 4 holes, Cruiser' - 3 holes, Submarine - 3 holes, Destroyer' - 2 holes),
+                                After hiding their ships, players take turns taking randon shots, hoping to hit their opponent's 
+                                ship. First player to sink all 5 ships is the winnder!
+                            </p>
+                            <h1 id = 'letsPlay'>Let's Play!</h1>
+                            <h2 id =formHeader>First, we need your names:</h1>
                             <form action="/action_page.php" method="get" id="nameform">
                                 <label for="fname">First Player Name:</label>
                                 <input type="text" id="1name" name="1name"><br><br>

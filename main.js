@@ -1,24 +1,20 @@
 var boardsdata, player, currentPlayer;
 
-// boardsdata[0][0][2] player (0 or 1) - row (0 to 9) - column ( 0 to 9)
+
 function initializeData() {
-    playerNames = ['Player1', 'Player2']
-    activePlayer = 0;
-    otherPlayer = 1;
-    shipTypes = [null, 'Carrier', 'Battleship', 'Cruiser', 'Submarine', 'Destroyer'];;
-    shipHoles = [
-        [null, 5, 4, 3, 3, 2, 17, 100], //empty, the five ships, then total hits (for win) and misses
-        [null, 5, 4, 3, 3, 2, 17, 100]
-    ];
-    shipHits = [
-        [null, 0, 0, 0, 0, 0, 0, 0], //empty, the five ships, then hits and misses to compare with holes
-        [null, 0, 0, 0, 0, 0, 0, 0]
-    ];
-    boardfill = 0;
-    shipNumber = 0;
-    shipCount = 0;
-    shipTypeCounter = 0;
-    currentSquare = [0, 0, 0];
+    //names are replaced at the nameInput form
+    playerNames = ['Player1', 'Player2'];
+    currentPlayer = [0, 1];
+
+    //setting the ship data
+    shipTypes = ['Carrier', 'Battleship', 'Cruiser', 'Submarine', 'Destroyer'];
+    // the five ships, then total hits (for win) and misses
+    shipHoles = [5, 4, 3, 3, 2, 17, 100]; 
+    // the five ships, then hits and misses to compare with holes for each person
+    shipHits = [ [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0] ];
+
+    //each player has a board, and empty square's value is a 7
+    // boardsdata[0][0][0] player (0 or 1) - row (0 to 9) - column ( 0 to 9)
     boardsdata = [
         [
             [7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
@@ -45,17 +41,17 @@ function initializeData() {
             [7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
         ]
     ]
+
+    boardfill = 0;
+    shipNumber = 0;
+    shipCount = 0;
+    shipTypeCounter = 0;
+    currentSquare = [0, 0, 0];
 }
 
-initializeData();
-
-// turn on instruction Setup
-setupInstructions()
-
-
-function setupInstructions() {
-    // hiding and exposing the elements to start the setup
-    //hide the play boards
+// hiding and exposing the elements to start the setup
+function setBoardforShipInput() {
+    //hide the playing boards
     document.querySelector('.player0Board').style.display = 'none';
     document.querySelector('.player1Board').style.display = 'none';
     //hide the ship pictures
@@ -70,8 +66,6 @@ function setupInstructions() {
     document.getElementById('P1Comment1').style.display = 'none';
     document.getElementById('P1Comment2').style.display = 'none';
     document.getElementById('shipInputInstructions').style.display = 'none';
-    //get the name input
-    nameInputForms();
 };
 
 //getting the player names
@@ -82,6 +76,24 @@ function nameInputForms() {
         shipInputInstructions();
     });
 };
+
+
+
+
+
+
+
+initializeData();
+
+// turn on instruction Setup
+setBoardforShipInput();
+
+//get the name input
+nameInputForms();
+
+
+
+
 
 //instructions for inputting the ships
 function shipInputInstructions() {
@@ -120,13 +132,13 @@ function setSquareValues() {
                     shipDataInputValue = 3;
                 } else if (shipTypeCounter > 12 && shipTypeCounter < 16) {
                     shipDataInputValue = 4;
-                } else if (shipTypeCounter > 15 && shipTypeCounter < 17) {
+                } else if (shipTypeCounter > 15 && shipTypeCounter < 18) {
                     shipDataInputValue = 5;
                 } else {
                     //switchplayers
                     console.log('switch player');
                     currentPlayer = 1;
-                    ShipTypeCounter = 0;
+                    ShipTypeCounter = 1;
                     document.getElementById("P0Title2").textContent = 'Time to set ' + playerNames[currentPlayer] + '\'s ships!';
                     for (rowReset = 0; rowReset < 10; rowReset++) {
                         for (columnReset = 0; columnReset < 10; columnReset++) {
