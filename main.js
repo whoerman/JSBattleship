@@ -108,8 +108,17 @@ function shipInputInstructions() {
 function settingShips() {
     //turn on the title over the selection board
     document.getElementById("P0Title2").textContent = 'Time to set ' + playerNames[0] + '\'s ships!';
+    //the warning box for player 2 to turn away
     document.getElementById("P0Title2").style.color = '#ff0000';
     document.getElementById("P0Title2").style.textShadow = '2px 2px #000000';
+    document.getElementById("player2LA").textContent = playerNames[1];
+    document.getElementById("player1LA").textContent = playerNames[0];
+    //format for each ships with instructions
+    document.getElementById('Carrier').style.display = 'block';
+    document.getElementById('Battleship').style.display = 'none';
+    document.getElementById('Cruiser').style.display = 'none';
+    document.getElementById('Submarine').style.display = 'none';
+    document.getElementById('Destroyer').style.display = 'none';
     //setting each ship
     currentPlayer = 0;
     setSquareValues();
@@ -127,12 +136,20 @@ function setSquareValues() {
                 if (shipTypeCounter > 0 && shipTypeCounter < 6) {
                     shipDataInputValue = 1;
                 } else if (shipTypeCounter > 5 && shipTypeCounter < 10) {
+                    document.getElementById('Carrier').style.display = 'none';
+                    document.getElementById('Battleship').style.display = 'block';
                     shipDataInputValue = 2;
                 } else if (shipTypeCounter > 9 && shipTypeCounter < 13) {
                     shipDataInputValue = 3;
+                    document.getElementById('Battleship').style.display = 'none';
+                    document.getElementById('Cruiser').style.display = 'block';
                 } else if (shipTypeCounter > 12 && shipTypeCounter < 16) {
                     shipDataInputValue = 4;
+                    document.getElementById('Cruiser').style.display = 'none';
+                    document.getElementById('Submarine').style.display = 'block';
                 } else if (shipTypeCounter > 15 && shipTypeCounter < 18) {
+                    document.getElementById('Submarine').style.display = 'none';
+                    document.getElementById('Destroyer').style.display = 'block';
                     shipDataInputValue = 5;
                 } else {
                     //switchplayers

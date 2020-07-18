@@ -309,31 +309,86 @@
 
                         <!-- Name input Div - hidden after names are inputted -->
                         <div id="nameInput">
-                            <h2 id ='instructionHeader'>Instructions for Game Play</h2>
-                            <p id="nameParagraph">Most of you are familiar with the game BATTLESHIP, 
+                            <h2 id='instructionHeader'>Instructions for Game Play</h2>
+                            <p id="nameParagraph">Most of you are familiar with the game BATTLESHIP,
                                 known worldwide as a pencil and paper game which dates from World War I.
-                                In 1967 Milton Bradley introduced a version of the game that used plastic boards and pegs. 
-                            I have writtten a version in plain Javascript, to hone my coding skills. I hope you enjoy it.</p>
-                            <p id="gameParagraph">Summary: Each player has a 10 x 10 board, on which they hide 5 ships 
-                                (Carrier - 5 holes, Battleship - 4 holes, Cruiser - 3 holes, Submarine - 3 holes, Destroyer - 2 holes),
-                                After hiding their ships, players take turns taking random shots, hoping to hit their opponent's 
+                                In 1967 Milton Bradley introduced a version of the game that used plastic boards and
+                                pegs.
+                                I have writtten a version in plain Javascript, to hone my coding skills. I hope you
+                                enjoy it.</p>
+                            <p id="gameParagraph">Summary: Each player has a 10 x 10 board, on which they hide 5 ships
+                                (Carrier - 5 holes, Battleship - 4 holes, Cruiser - 3 holes, Submarine - 3 holes,
+                                Destroyer - 2 holes),
+                                After hiding their ships, players take turns taking random shots, hoping to hit their
+                                opponent's
                                 ship. First player to sink all 5 ships is the winner!
                             </p>
-                            <h1 id = 'letsPlay'>Let's Play!</h1>
-                            <h2 id =formHeader>First, we need your names:</h1>
-                            <form action="/action_page.php" method="get" id="nameform">
-                                <label for="fname">First Player Name:</label>
-                                <input type="text" id="1name" name="1name"><br><br>
-                                <label for="lname">Second Player Name:</label>
-                                <input type="text" id="2name" name="2name">
-                            </form>
-                            <h1></h1>
-                            <button type="button" id='nameFormButton' form="nameform">Submit Names</button>
+                            <h1 id='letsPlay'>Let's Play!</h1>
+                            <h2 id=formHeader>First, we need your names:</h1>
+                                <form action="/action_page.php" method="get" id="nameform">
+                                    <label for="fname">First Player Name:</label>
+                                    <input type="text" id="1name" name="1name"><br><br>
+                                    <label for="lname">Second Player Name:</label>
+                                    <input type="text" id="2name" name="2name">
+                                </form>
+                                <h1></h1>
+                                <button type="button" id='nameFormButton' form="nameform">Submit Names</button>
                         </div>
 
                         <!-- rest on ship input instructions - hidden until names are inputted -->
-                        <div id = 'shipInputInstructions'>
+                        <div id='shipInputInstructions'>
                             <h2 id="welcomeNames"><span>Names</span></h2>
+                            <h3 id='lookAway'> Now it is time for <span id="player2LA">Player 2</span> so look away so
+                                <span id="player1LA">Player 1</span> can hide his ships.</h3>
+                            <h3 id="gameParagraph">Use the board on the left to hide your ships. You will do them one at
+                                a time.
+                                You will click the appropriate number of spaces for each ship on the grid to the left.
+                            </h3>
+                            <div id='Carrier'>
+                                <img src='Carrier.gif'></img>
+                                <p id='shipDecsription'><strong>Number 1: Carrier. It is time to hide your Carrier,
+                                        which has 5
+                                        holes.</strong> Aircraft carriers are warships that evolved from
+                                    balloon-carrying wooden
+                                    vessels into nuclear-powered vessels carrying scores of fixed- and rotary-wing
+                                    aircraft.
+                                    Since their introduction they have allowed naval forces to project air power great
+                                    distances without having to depend on local bases for staging aircraft operations.
+                                </p>
+                            </div>
+                            <div id='Battleship'>
+                                <img src='Battleship.gif'></img>
+                                <p id='shipDecsription'><strong>Number 2: Battleship. It is time to hide your
+                                        Battleship, which has 4
+                                        holes.</strong> A battleship is a large armored warship with a main battery
+                                    consisting of large caliber guns. During the late 19th and early 20th centuries the
+                                    battleship was the most powerful type of warship, and a fleet centered around the
+                                    battleship was part of the command of the sea doctrine for several decades. </p>
+                            </div>
+                            <div id='Cruiser'>
+                                <img src='Cruiser.gif'></img>
+                                <p id='shipDecsription'><strong>Number 3: Cruiser. It is time to hide your Cruiser,
+                                        which has 3
+                                        holes.</strong> A cruiser is a type of warship. Modern cruisers are generally
+                                    the largest ships in a fleet after aircraft carriers and amphibious assault ships,
+                                    and can usually perform several roles.</p>
+                            </div>
+                            <div id='Submarine'>
+                                <img src='Submarine.gif'></img>
+                                <p id='shipDecsription'><strong>Number 4: Submarine. It is time to hide your Submarine,
+                                        which has 3
+                                        holes.</strong> A submarine (or sub) is a watercraft capable of independent
+                                    operation underwater. It differs from a submersible, which has more limited
+                                    underwater capability. </p>
+                            </div>
+                            <div id='Destroyer'>
+                                <img src='Destroyer.gif'></img>
+                                <p id='shipDecsription'><strong>Number 5: Destroyer. It is time to hide your Destroyer,
+                                        which has 2
+                                        holes.</strong> In naval terminology, a destroyer is a fast, maneuverable,
+                                    long-endurance warship intended to escort larger vessels in a fleet, convoy or
+                                    battle group and defend them against powerful short range attackers.</p>
+                            </div>
                         </div>
 
                     </div>
