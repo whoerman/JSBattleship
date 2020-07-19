@@ -9,9 +9,14 @@ function initializeData() {
     //setting the ship data
     shipTypes = ['Carrier', 'Battleship', 'Cruiser', 'Submarine', 'Destroyer'];
     // the five ships, then total hits (for win) and misses
-    shipHoles = [5, 4, 3, 3, 2, 17, 100]; 
+    shipHoles = [5, 4, 3, 3, 2, 17, 100];
     // the five ships, then hits and misses to compare with holes for each person
-    shipHits = [ [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0] ];
+    shipHits = [
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0]
+    ];
+
+    currentShipInputSquare = [ 0, 0 ];
 
     //each player has a board, and empty square's value is a 7
     // boardsdata[0][0][0] player (0 or 1) - row (0 to 9) - column ( 0 to 9)
@@ -119,6 +124,8 @@ function settingShips() {
     document.getElementById('Cruiser').style.display = 'none';
     document.getElementById('Submarine').style.display = 'none';
     document.getElementById('Destroyer').style.display = 'none';
+    document.getElementById('P0Comment1').textContent = 'Click the square above in a straight line';
+    document.getElementById('P0Comment2').textContent = '(can be horizontal or vertical)';
     //setting each ship
     currentPlayer = 0;
     setSquareValues();
@@ -133,44 +140,74 @@ function setSquareValues() {
                 console.log(this.id)
                 shipTypeCounter += 1;
 
-                if (shipTypeCounter > 0 && shipTypeCounter < 6) {
-                    shipDataInputValue = 1;
-                } else if (shipTypeCounter > 5 && shipTypeCounter < 10) {
-                    document.getElementById('Carrier').style.display = 'none';
-                    document.getElementById('Battleship').style.display = 'block';
-                    shipDataInputValue = 2;
-                } else if (shipTypeCounter > 9 && shipTypeCounter < 13) {
-                    shipDataInputValue = 3;
-                    document.getElementById('Battleship').style.display = 'none';
-                    document.getElementById('Cruiser').style.display = 'block';
-                } else if (shipTypeCounter > 12 && shipTypeCounter < 16) {
-                    shipDataInputValue = 4;
-                    document.getElementById('Cruiser').style.display = 'none';
-                    document.getElementById('Submarine').style.display = 'block';
-                } else if (shipTypeCounter > 15 && shipTypeCounter < 18) {
-                    document.getElementById('Submarine').style.display = 'none';
-                    document.getElementById('Destroyer').style.display = 'block';
-                    shipDataInputValue = 5;
-                } else {
-                    //switchplayers
-                    console.log('switch player');
-                    currentPlayer = 1;
-                    ShipTypeCounter = 1;
-                    document.getElementById("P0Title2").textContent = 'Time to set ' + playerNames[currentPlayer] + '\'s ships!';
-                    for (rowReset = 0; rowReset < 10; rowReset++) {
-                        for (columnReset = 0; columnReset < 10; columnReset++) {
-                            document.getElementById(rowReset + '-' + columnReset).src = '../JSBattleship/blank.jpg';
-                        }
-                    }
-
+                switch (shipTypeCounter) {
+                    case 1:
+                        shipDataInputValue = 1;
+                        break;
+                    case 2:
+                        shipDataInputValue = 1;
+                        break;
+                    case 3:
+                        shipDataInputValue = 1;
+                        break;
+                    case 4:
+                        shipDataInputValue = 1;
+                        break;
+                    case 5:
+                        shipDataInputValue = 1;
+                        document.getElementById('Carrier').style.display = 'none';
+                        document.getElementById('Battleship').style.display = 'block';
+                        break;
+                    case 6:
+                        shipDataInputValue = 2;
+                        break;
+                    case 7:
+                        shipDataInputValue = 2;
+                        break;
+                    case 8:
+                        shipDataInputValue = 2;
+                        break;
+                    case 9:
+                        shipDataInputValue = 2;
+                        document.getElementById('Battleship').style.display = 'none';
+                        document.getElementById('Cruiser').style.display = 'block';
+                        break;
+                    case 10:
+                        shipDataInputValue = 3;
+                        break;
+                    case 11:
+                        shipDataInputValue = 3;
+                        break;
+                    case 12:
+                        shipDataInputValue = 3;
+                        document.getElementById('Cruiser').style.display = 'none';
+                        document.getElementById('Submarine').style.display = 'block';
+                        break;
+                    case 13:
+                        shipDataInputValue = 4;
+                        break;
+                    case 14:
+                        shipDataInputValue = 4;
+                        break;
+                    case 15:
+                        shipDataInputValue = 4;
+                        document.getElementById('Submarine').style.display = 'none';
+                        document.getElementById('Destroyer').style.display = 'block';
+                        break;
+                    case 16:
+                        shipDataInputValue = 5;
+                        break;
+                    case 17:
+                        shipDataInputValue = 5;
+                        console.log('17 time')
+                        break;
+                    default:
+                        console.log('switch default')
                 }
-
-
 
                 currentSquare[0] = parseInt((this.id).charAt(0));
                 currentSquare[1] = parseInt((this.id).charAt(2));
                 boardsdata[0][currentSquare[0]][currentSquare[1]] = shipDataInputValue;
-                console.log(boardsdata[currentPlayer][currentSquare[0]][currentSquare[1]]);
                 //change the current square to the squareData number 
                 document.getElementById(currentSquare[0] + '-' + currentSquare[1]).src = '../JSBattleship/space' + shipDataInputValue + '.jpg';
 
