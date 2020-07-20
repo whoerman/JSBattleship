@@ -1,6 +1,7 @@
 var boardsdata, player, currentPlayer;
 
 
+
 function initializeData() {
     //names are replaced at the nameInput form
     playerNames = ['Player1', 'Player2'];
@@ -16,7 +17,7 @@ function initializeData() {
         [0, 0, 0, 0, 0, 0, 0]
     ];
 
-    currentShipInputSquare = [ 0, 0 ];
+    currentShipInputSquare = [0, 0];
 
     //each player has a board, and empty square's value is a 7
     // boardsdata[0][0][0] player (0 or 1) - row (0 to 9) - column ( 0 to 9)
@@ -82,12 +83,20 @@ function nameInputForms() {
     });
 };
 
+//instructions for inputting the ships
+function shipInputInstructions() {
+    //hide the name input div
+    document.getElementById('nameInput').style.display = 'none';
+    //reveal the welcome with the player names
+    document.getElementById('shipInputInstructions').style.display = 'block';
+    document.getElementById("welcomeNames").textContent = 'Welcome, ' + playerNames[0] + ' & ' + playerNames[1] + '!';
+    settingShips();
+}
 
 
 
 
-
-
+//setting all the data to zero
 initializeData();
 
 // turn on instruction Setup
@@ -100,15 +109,7 @@ nameInputForms();
 
 
 
-//instructions for inputting the ships
-function shipInputInstructions() {
-    //hide the name input div
-    document.getElementById('nameInput').style.display = 'none';
-    //reveal the welcome with the player names
-    document.getElementById('shipInputInstructions').style.display = 'block';
-    document.getElementById("welcomeNames").textContent = 'Welcome, ' + playerNames[0] + ' & ' + playerNames[1] + '!';
-    settingShips();
-}
+
 
 function settingShips() {
     //turn on the title over the selection board
@@ -118,7 +119,7 @@ function settingShips() {
     document.getElementById("P0Title2").style.textShadow = '2px 2px #000000';
     document.getElementById("player2LA").textContent = playerNames[1];
     document.getElementById("player1LA").textContent = playerNames[0];
-    //format for each ships with instructions
+    //hiding format for each ships with instructions
     document.getElementById('Carrier').style.display = 'block';
     document.getElementById('Battleship').style.display = 'none';
     document.getElementById('Cruiser').style.display = 'none';
@@ -130,6 +131,7 @@ function settingShips() {
     currentPlayer = 0;
     setSquareValues();
 }
+
 
 function setSquareValues() {
     for (row = 0; row < 10; row++) {
@@ -199,7 +201,82 @@ function setSquareValues() {
                         break;
                     case 17:
                         shipDataInputValue = 5;
-                        console.log('17 time')
+                        // for (rowReset = 0; rowReset < 10; rowReset++) {
+                        //     for (columnReset = 0; columnReset < 10; columnReset++) {
+                        //         document.getElementById(rowReset + '-' + columnReset).src = '../JSBattleship/blank.jpg';
+                        //     }
+                        // }
+                            //turn on the title over the selection board
+                        document.getElementById("P0Title2").textContent = 'Time to set ' + playerNames[1] + '\'s ships!';
+                        break;
+                    case 18:
+                        shipDataInputValue = 1;
+                        for (rowReset = 0; rowReset < 10; rowReset++) {
+                            for (columnReset = 0; columnReset < 10; columnReset++) {
+                                document.getElementById(rowReset + '-' + columnReset).src = '../JSBattleship/blank.jpg';
+                            }
+                        } 
+                        break;
+                    case 19:
+                        shipDataInputValue = 1;
+                        break;
+                    case 20:
+                        shipDataInputValue = 1;
+                        break;
+                    case 21:
+                        shipDataInputValue = 1;
+                        break;
+                    case 22:
+                        shipDataInputValue = 1;
+                        document.getElementById('Carrier').style.display = 'none';
+                        document.getElementById('Battleship').style.display = 'block';
+                        break;
+                    case 23:
+                        shipDataInputValue = 2;
+                        break;
+                    case 24:
+                        shipDataInputValue = 2;
+                        break;
+                    case 25:
+                        shipDataInputValue = 2;
+                        break;
+                    case 26:
+                        shipDataInputValue = 2;
+                        document.getElementById('Battleship').style.display = 'none';
+                        document.getElementById('Cruiser').style.display = 'block';
+                        break;
+                    case 27:
+                        shipDataInputValue = 3;
+                        break;
+                    case 28:
+                        shipDataInputValue = 3;
+                        break;
+                    case 29:
+                        shipDataInputValue = 3;
+                        document.getElementById('Cruiser').style.display = 'none';
+                        document.getElementById('Submarine').style.display = 'block';
+                        break;
+                    case 30:
+                        shipDataInputValue = 4;
+                        break;
+                    case 31:
+                        shipDataInputValue = 4;
+                        break;
+                    case 32:
+                        shipDataInputValue = 4;
+                        document.getElementById('Submarine').style.display = 'none';
+                        document.getElementById('Destroyer').style.display = 'block';
+                        break;
+                    case 33:
+                        shipDataInputValue = 5;
+                        break;
+                    case 34:
+                        shipDataInputValue = 5;
+
+                        break;
+                    case 35:
+                        shipDataInputValue = 5;
+
                         break;
                     default:
                         console.log('switch default')
@@ -207,7 +284,7 @@ function setSquareValues() {
 
                 currentSquare[0] = parseInt((this.id).charAt(0));
                 currentSquare[1] = parseInt((this.id).charAt(2));
-                boardsdata[0][currentSquare[0]][currentSquare[1]] = shipDataInputValue;
+                boardsdata[currentPlayer][currentSquare[0]][currentSquare[1]] = shipDataInputValue;
                 //change the current square to the squareData number 
                 document.getElementById(currentSquare[0] + '-' + currentSquare[1]).src = '../JSBattleship/space' + shipDataInputValue + '.jpg';
 
