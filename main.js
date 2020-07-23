@@ -125,6 +125,7 @@ function settingShips() {
     document.getElementById('Cruiser').style.display = 'none';
     document.getElementById('Submarine').style.display = 'none';
     document.getElementById('Destroyer').style.display = 'none';
+    document.getElementById('Buttons').style.display = 'none';
     document.getElementById('P0Comment1').textContent = 'Click the square above in a straight line';
     document.getElementById('P0Comment2').textContent = '(can be horizontal or vertical)';
     //setting each ship
@@ -201,21 +202,36 @@ function setSquareValues() {
                         break;
                     case 17:
                         shipDataInputValue = 5;
-                        // for (rowReset = 0; rowReset < 10; rowReset++) {
-                        //     for (columnReset = 0; columnReset < 10; columnReset++) {
-                        //         document.getElementById(rowReset + '-' + columnReset).src = '../JSBattleship/blank.jpg';
-                        //     }
-                        // }
-                            //turn on the title over the selection board
+                        document.getElementById('Destroyer').style.display = 'none';
+                        document.getElementById('Buttons').style.display = 'block';
+                        document.getElementById("okButton").addEventListener("click", function () {
+                            console.log("OK")
+                            for (rowReset = 0; rowReset < 10; rowReset++) {
+                                for (columnReset = 0; columnReset < 10; columnReset++) {
+                                    document.getElementById(rowReset + '-' + columnReset).src = '../JSBattleship/blank.jpg';
+                                }
+                            }
+                        currentPlayer = 1;
                         document.getElementById("P0Title2").textContent = 'Time to set ' + playerNames[1] + '\'s ships!';
+                        document.getElementById("player2LA").textContent = playerNames[0];
+                        document.getElementById("player1LA").textContent = playerNames[1];
+                        document.getElementById('Buttons').style.display = 'none';
+                        })
+                        document.getElementById("redoButton").addEventListener("click", function () {
+                            console.log('redo')
+                            for (rowReset = 0; rowReset < 10; rowReset++) {
+                                for (columnReset = 0; columnReset < 10; columnReset++) {
+                                    document.getElementById(rowReset + '-' + columnReset).src = '../JSBattleship/blank.jpg';
+                                }
+                            }
+                        document.getElementById('Buttons').style.display = 'none';
+                        })
                         break;
                     case 18:
+                        //turn on the title over the selection board
+                        document.getElementById("P0Title2").textContent = 'Time to set ' + playerNames[1] + '\'s ships!';
                         shipDataInputValue = 1;
-                        for (rowReset = 0; rowReset < 10; rowReset++) {
-                            for (columnReset = 0; columnReset < 10; columnReset++) {
-                                document.getElementById(rowReset + '-' + columnReset).src = '../JSBattleship/blank.jpg';
-                            }
-                        } 
+
                         break;
                     case 19:
                         shipDataInputValue = 1;
