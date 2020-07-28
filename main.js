@@ -298,6 +298,7 @@ function setSquareValues() {
                                     document.getElementById(rowReset + '-' + columnReset).src = '../JSBattleship/blank.jpg';
                                 }
                             }
+                        changeToPlay();
                         document.getElementById('Buttons1').style.display = 'none';
                         })
                         document.getElementById("redoButton1").addEventListener("click", function () {
@@ -330,113 +331,23 @@ function setSquareValues() {
     }
 }
 
-
-
-
-// //setting up the ships
-// function setShips() {
-
-//     // fillBoard0();
-
-//     function fillBoard0() {
-//         document.querySelector('.player' + otherPlayer + 'Board').style.opacity = '.5';
-//         document.getElementById("P0Title2").textContent = 'Time to set Player 1\'s ships!';
-//         document.getElementById("P0Title2").style.color = '#ff0000';
-//         document.getElementById("P0Title2").style.textShadow = '2px 2px #000000';
-//         // document.getElementById('0shiPicDiv').style.display = 'none';
-
-//         player = 0;
-//         shipCount = 0;
-//         squareData = 1;
-//         clickSquare();
-//     }
-
-//     function fillBoard1() {
-
-//         // document.getElementById("0shipPicDiv").style.display = 'block';
-
-//         document.querySelector('.player' + activePlayer + 'Board').style.opacity = '.3';
-//         document.getElementById("P0Title2").textContent = 'Player 1\'s ships!';
-//         document.getElementById("P0Title2").style.color = '#000000';
-//         document.getElementById("P0Title2").style.textShadow = 'none';
-
-//         document.querySelector('.player' + otherPlayer + 'Board').style.opacity = '1';
-//         document.getElementById("P1Title2").textContent = 'Time to set Player 2\'s ships!';
-//         document.getElementById("P1Title2").style.color = '#ff0000';
-//         document.getElementById("P1Title2").style.textShadow = '2px 2px #000000';
-
-//         player = 1;
-//         shipCount = 0;
-//         squareData = 1;
-//         clickSquare();
-//     }
-
-//     function prepareGame() {
-//         for (player = 0; player < 2; player++) {
-//             for (row = 0; row < 10; row++) {
-//                 for (column = 0; column < 10; column++) {
-//                     document.getElementById(parseInt(player) + '-' + (row) + '-' + (column)).src = '../JSBattleship/waves.jpg';
-//                 }
-//             }
-//         }
-//         playGame();
-//     }
-
-
-//     function clickSquare() {
-//         for (row = 0; row < 10; row++) {
-//             for (column = 0; column < 10; column++) {
-//                 document.getElementById(parseInt(player) + '-' + (row) + '-' + (column)).addEventListener('click', function () {
-
-//                     function checkDirection() {
-//                         console.log('check direction')
-//                         console.log(currentSquare[0], currentSquare[1], currentSquare[2], )
-//                     }
-
-
-//                     console.log(this.id)
-//                     currentSquare[0] = parseInt((this.id).charAt(0));
-//                     currentSquare[1] = parseInt((this.id).charAt(2));
-//                     currentSquare[2] = parseInt((this.id).charAt(4));
-//                     shipCount += 1;
-//                     console.log(shipCount);
-//                     checkDirection();
-
-//                     boardsdata[currentSquare[0]][currentSquare[1]][currentSquare[2]] = squareData;
-
-//                     //change the current square to the squareData number graphic
-//                     document.getElementById(currentSquare[0] + '-' + currentSquare[1] + '-' + currentSquare[2]).src = '../JSBattleship/space' + squareData + '.jpg';
-
-
-
-
-//                     if (shipCount === 5) {
-//                         squareData += 1;
-//                     } else if (shipCount === 9) {
-//                         squareData += 1;
-//                     } else if (shipCount === 12) {
-//                         squareData += 1;
-//                     } else if (shipCount === 15) {
-//                         squareData += 1;
-//                     } else if (shipCount === 17) {
-//                         boardfill += 1;
-//                         if (boardfill === 1) {
-//                             prepareGame();
-//                         } else {
-//                             fillBoard1();
-//                         }
-
-
-//                     }
-
-
-//                 })
-//             }
-//         }
-//     }
-// }
-
-// setShips();
+//setting up game to play
+function changeToPlay() {
+    document.getElementById('shipInputInstructions').style.display = 'none';
+    document.getElementById('setUpBoard').style.display = 'none';
+    document.getElementById('left-div').style.display = 'block';
+    document.getElementById('right-div').style.display = 'block';
+    document.querySelector('.player0Board').style.display = 'block';
+    document.querySelector('.player1Board').style.display = 'block';
+    document.querySelector("P1Title2").style.display = 'block';
+    document.querySelector("P0Title1").style.display = 'block';
+    document.querySelector("P0Title2").style.display = 'block';
+    document.querySelector("P1Comment1").style.display = 'block';
+    document.querySelector("P1Comment2").style.display = 'block';
+    document.querySelector("P0Comment1").style.display = 'block';
+    document.querySelector("P0Comment2").style.display = 'block';
+    playGame();
+}
 
 
 //board play
